@@ -6,25 +6,28 @@ int main(){
     cin.tie(NULL);
     
     string s;
-    getline(cin, s);
 
-    stringstream ss(s);
+    while(getline(cin, s)){
+        stringstream ss(s);
 
-    vector<string> v;
-
-    string word;
-    while(ss >> word){
-        v.push_back(word);
+        vector<string> v;
+    
+        string word;
+        while(ss >> word){
+            v.push_back(word);
+        }
+    
+        for(auto &val : v){
+            reverse(val.begin(), val.end());
+        }
+    
+        for(int i=v.size()-1; i>=0; i--){
+            cout << v[i] << " ";
+        }
+        cout << endl;
     }
 
-    for(auto &val : v){
-        reverse(val.begin(), val.end());
-    }
-
-    for(int i=v.size()-1; i>=0; i--){
-        cout << v[i] << " ";
-    }
-    cout << endl;
+    
 
 
     return 0;
